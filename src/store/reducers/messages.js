@@ -1,6 +1,6 @@
 export default (state = [], action) => {
   switch (action.type) {
-    case 'SEND_MESSAGE':
+    case 'MESSAGES_SEND':
       return [
         ...state,
         action.message
