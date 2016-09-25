@@ -12,6 +12,8 @@ class Room extends Component {
       sentAt: new Date()
     };
 
+    this.refs.message.value = '';
+
     this.props.onSendMessage(message);
   }
 
