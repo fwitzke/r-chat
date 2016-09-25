@@ -11,5 +11,8 @@ node_modules: package.json
 build: install
 	@browserify index.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]
 
+build.dev: install
+	@watchify index.js -o bundle.js -t [ babelify --presets [ es2015 react ] ] -v
+
 serve: build
 	@open index.html
