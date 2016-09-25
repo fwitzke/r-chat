@@ -9,10 +9,10 @@ node_modules: package.json
 	@touch $@
 
 build: install
-	@browserify index.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]
+	@browserify src/index.js -o static/bundle.js -t [ babelify --presets [ es2015 react ] ]
 
 build.dev: install
-	@watchify index.js -o bundle.js -t [ babelify --presets [ es2015 react ] ] -v
+	@watchify src/index.js -o static/bundle.js -t [ babelify --presets [ es2015 react ] ] -v
 
 serve: build
-	@open index.html
+	@open static/index.html

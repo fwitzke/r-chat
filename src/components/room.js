@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux';
 import uuid from 'node-uuid'
 
 class Room extends Component {
@@ -18,13 +19,13 @@ class Room extends Component {
   }
 
   render() {
-    const { value, onSendMessage } = this.props;
+    const { messages } = this.props;
 
     return (
       <article id="room">
-        <ul>
+        <ul id="messages">
           {
-            value.map(function (message) {
+            messages.map(function (message) {
               var innerHTML = `${message.username} @ ${ message.sentAt } says: ${ message.text }`;
               return <li key={message.uid}>{ innerHTML }</li>;
             })
@@ -41,8 +42,20 @@ class Room extends Component {
 }
 
 Room.propTypes = {
-  value: PropTypes.array.isRequired,
+  messages: PropTypes.array.isRequired,
   onSendMessage: PropTypes.func.isRequired
 };
 
-export default Room
+const mapStateToProps = (state) => {
+  return { messages: state.messages };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSendMessage: (message) => {
+      dispatch({ type: 'SEND_MESSAGE', message });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Room);
