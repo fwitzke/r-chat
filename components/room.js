@@ -5,22 +5,26 @@ class Room extends Component {
   submit (e) {
     e.preventDefault();
 
-    this.props.onSendMessage({
+    var message = {
       uid: uuid.v4(),
       text: this.refs.message.value,
-      username: this.refs.username.value
-    });
+      username: this.refs.username.value,
+      sentAt: new Date()
+    };
+
+    this.props.onSendMessage(message);
   }
 
   render() {
     const { value, onSendMessage } = this.props;
 
     return (
-      <article>
+      <article id="room">
         <ul>
           {
             value.map(function (message) {
-              return <li key={message.uid}>{ message.text }</li>;
+              var innerHTML = `${message.username} @ ${ message.sentAt } says: ${ message.text }`;
+              return <li key={message.uid}>{ innerHTML }</li>;
             })
           }
         </ul>
