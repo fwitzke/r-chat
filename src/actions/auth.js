@@ -7,7 +7,12 @@ export const listenToAuth = () => {
   return (dispatch, getState) => {
     auth.onAuthStateChanged((authData) => {
       if (authData) {
-        dispatch({ type: 'AUTH_LOGIN', uid: authData.uid, username: authData.displayName });
+        dispatch({
+          type: 'AUTH_LOGIN',
+          uid: authData.uid,
+          username: authData.displayName,
+          avatar: authData.photoURL
+        });
 
         const listenToMessagesDispatcher = listenToMessages();
         listenToMessagesDispatcher(dispatch, getState);

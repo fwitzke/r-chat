@@ -17,7 +17,7 @@ body {
   flex-direction: column;
 }
 
-#room > #message-list {
+#message-list {
   flex: 1 1 auto;
   position: relative;
   overflow-y: auto;
@@ -34,7 +34,7 @@ body {
   color: #888;
 }
 
-#room > #message-form {
+#message-form {
   flex: 0 0 auto;
   background-color: #dcdcdc;
   padding: 10px;
@@ -58,4 +58,12 @@ body {
   padding: 10px;
   background-color: #2196F3;
   color: white;
+}
+
+#auth > .avatar {
+  vertical-align: middle;
+}
+
+#auth > span {
+  margin: 0 10px;
 }

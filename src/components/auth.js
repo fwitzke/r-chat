@@ -11,8 +11,9 @@ class Auth extends Component {
       case 'AUTH_LOGGED_IN':
         return (
           <div id="auth">
-            <span>Logged in as { auth.username }.</span>
-            <button className="btn" onClick={ this.props.logout }>Log out</button>
+            <img className="avatar" width="30" height="30" src={ auth.avatar }></img>
+            <span>{ auth.username }</span>
+            <button id="logout" onClick={ this.props.logout }>Log out</button>
           </div>
         );
       case 'AUTH_AWAITING_RESPONSE':

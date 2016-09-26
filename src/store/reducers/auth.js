@@ -1,7 +1,8 @@
 const initialState = {
   status: 'AUTH_GUEST',
   uid: null,
-  username: null
+  username: null,
+  avatar: null
 };
 
 export default (state = initialState, action) => {
@@ -12,7 +13,8 @@ export default (state = initialState, action) => {
       return {
         status: 'AUTH_LOGGED_IN',
         username: action.username,
-        uid: action.uid
+        uid: action.uid,
+        avatar: action.avatar
       };
     case 'AUTH_LOGOUT':
       return initialState;
