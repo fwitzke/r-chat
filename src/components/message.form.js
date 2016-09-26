@@ -13,12 +13,16 @@ class MessageForm extends Component {
   }
 
   render() {
-    return (
-      <form onSubmit={this.submit.bind(this)}>
-        <input ref="message" type="text" placeholder="Type a message..."></input>
-        <input type="submit"></input>
-      </form>
-    );
+    if (this.props.username) {
+      return (
+        <form onSubmit={this.submit.bind(this)}>
+          <input ref="message" type="text" placeholder="Type a message..."></input>
+          <input type="submit"></input>
+        </form>
+      );
+    } else {
+      return (<p>You need to login to chat.</p>);
+    }
   }
 }
 
