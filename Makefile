@@ -15,4 +15,4 @@ build.dev: install
 	@watchify src/index.js -o static/bundle.js -t [ babelify --presets [ es2015 react ] ] -v
 
 serve: build
-	@open static/index.html
+	@firebase serve
