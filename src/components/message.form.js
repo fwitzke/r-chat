@@ -15,7 +15,7 @@ class MessageForm extends Component {
   render() {
     if (this.props.username) {
       return (
-        <form onSubmit={this.submit.bind(this)}>
+        <form id="message-form" onSubmit={this.submit.bind(this)}>
           <input ref="message" type="text" placeholder="Type a message..."></input>
           <input type="submit"></input>
         </form>
