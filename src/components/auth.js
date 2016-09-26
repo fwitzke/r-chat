@@ -21,7 +21,7 @@ class Auth extends Component {
         );
       default:
         return (
-          <button onClick={ this.props.startAuth }>login</button>
+          <button onClick={ this.props.startAuth }>login with GitHub</button>
         );
     }
   }

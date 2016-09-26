@@ -1,23 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import uuid from 'node-uuid'
+import { sendMessage } from '../actions/messages'
 
 class MessageForm extends Component {
   submit (e) {
     e.preventDefault();
 
     const { dispatch, username } = this.props;
-
-    var message = {
-      uid: uuid.v4(),
-      username,
-      text: this.refs.message.value,
-      sentAt: new Date()
-    };
-
+    var text = this.refs.message.value;
     this.refs.message.value = '';
-
-    dispatch({ type: 'MESSAGES_SEND', message });
+    this.props.sendMessage(text);
   }
 
   render() {
@@ -34,4 +26,6 @@ const mapStateToProps = (state) => {
   return { username: state.auth.username };
 };
 
-export default connect(mapStateToProps)(MessageForm);
+const mapDispatchToProps = { sendMessage };
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);

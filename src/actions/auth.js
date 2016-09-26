@@ -1,6 +1,25 @@
 import * as firebase from 'firebase';
 import { auth } from '../firebaseApp';
 
+import { listenToMessages } from './messages';
+
+export const listenToAuth = () => {
+  return (dispatch, getState) => {
+    auth.onAuthStateChanged((authData) => {
+      if (authData) {
+        dispatch({ type: 'AUTH_LOGIN', uid: authData.uid, username: authData.displayName });
+
+        const listenToMessagesDispatcher = listenToMessages();
+        listenToMessagesDispatcher(dispatch, getState);
+      } else {
+        if (getState().auth.status !== 'AUTH_GUEST') {
+          dispatch({ type: 'AUTH_LOGOUT' });
+        }
+      }
+    });
+  };
+};
+
 export const startAuth = () => {
   return (dispatch) => {
     dispatch({ type: 'AUTH_OPEN' });
@@ -21,6 +40,7 @@ export const startAuth = () => {
 export const logout = () => {
   return (dispatch) => {
     dispatch({ type: 'AUTH_LOGOUT' });
+    dispatch({ type: 'MESSAGES_CLEAR' });
     auth.signOut();
   };
 };
