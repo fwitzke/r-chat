@@ -23,7 +23,7 @@ export const listenToAuth = () => {
 export const startAuth = () => {
   return (dispatch) => {
     dispatch({ type: 'AUTH_OPEN' });
-    const provider = new firebase.auth.GithubAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
 
     auth.signInWithPopup(provider)
       .then((result) => {

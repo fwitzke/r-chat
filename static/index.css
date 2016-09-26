@@ -41,7 +41,7 @@ body {
   display: flex;
 }
 
-#message-form > input {
+#message-form > input, button {
   border-radius: 5px;
   padding: 10px;
   -webkit-appearance: none;

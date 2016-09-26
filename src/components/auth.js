@@ -12,7 +12,7 @@ class Auth extends Component {
         return (
           <div id="auth">
             <span>Logged in as { auth.username }.</span>
-            <button onClick={ this.props.logout }>Log out</button>
+            <button className="btn" onClick={ this.props.logout }>Log out</button>
           </div>
         );
       case 'AUTH_AWAITING_RESPONSE':
@@ -21,7 +21,7 @@ class Auth extends Component {
         );
       default:
         return (
-          <button onClick={ this.props.startAuth }>login with GitHub</button>
+          <button onClick={ this.props.startAuth }>login with Google</button>
         );
     }
   }
