@@ -1,5 +1,6 @@
 html {
-  background-color: #CCC;
+  color: #555;
+  font-family: 'Open Sans';
 }
 
 html, body, #root, #room {
@@ -26,3 +27,10 @@ body {
   flex: 0 0 auto;
   background-color: #dcdcdc;
 }
+
+#auth {
+  padding: 10px;
+  background-color: #2196F3;
+  color: white;
+}
+

@@ -10,7 +10,7 @@ class Auth extends Component {
     switch (auth.status) {
       case 'AUTH_LOGGED_IN':
         return (
-          <div>
+          <div id="auth">
             <span>Logged in as { auth.username }.</span>
             <button onClick={ this.props.logout }>Log out</button>
           </div>
