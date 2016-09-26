@@ -21,6 +21,17 @@ body {
   flex: 1 1 auto;
   position: relative;
   overflow-y: auto;
+  list-style: none;
+  padding: 0 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.message > small {
+  margin-left: 10px;
+  color: #888;
 }
 
 #room > #message-form {
@@ -30,10 +41,17 @@ body {
   display: flex;
 }
 
-#message-form > input#message {
-  padding: 10px;
+#message-form > input {
   border-radius: 5px;
+  padding: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#message-form > input#message {
   flex: 1;
+  margin-right: 10px;
 }
 
 #auth {

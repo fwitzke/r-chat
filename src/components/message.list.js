@@ -23,9 +23,14 @@ class MessageList extends Component {
       <ul id="message-list">
         {
           messages.map(function (message) {
-            var sentAt = moment(message.sentAt).format('MMMM DD HH:mm:ss');
-            var innerHTML = `${message.username} @ ${ sentAt } says: ${ message.text }`;
-            return <li key={message.uid}>{ innerHTML }</li>;
+            var sentAt = moment(message.sentAt).format('HH:mm:ss');
+
+            return <li className="message" key={message.uid}>
+                     <strong>{ message.username }</strong>
+                     <small>{ sentAt} </small>
+                     <br/>
+                     <span>{ message.text }</span>
+                   </li>;
           })
         }
       </ul>
