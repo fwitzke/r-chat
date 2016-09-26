@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment'
 
 class MessageList extends Component {
   render () {
@@ -9,7 +10,8 @@ class MessageList extends Component {
       <ul id="message-list">
         {
           messages.map(function (message) {
-            var innerHTML = `${message.username} @ ${ message.sentAt } says: ${ message.text }`;
+            var sentAt = moment(message.sentAt).format('MMMM DD HH:mm:ss');
+            var innerHTML = `${message.username} @ ${ sentAt } says: ${ message.text }`;
             return <li key={message.uid}>{ innerHTML }</li>;
           })
         }
