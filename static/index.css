@@ -26,6 +26,14 @@ body {
 #room > #message-form {
   flex: 0 0 auto;
   background-color: #dcdcdc;
+  padding: 10px;
+  display: flex;
+}
+
+#message-form > input#message {
+  padding: 10px;
+  border-radius: 5px;
+  flex: 1;
 }
 
 #auth {
@@ -33,4 +41,3 @@ body {
   background-color: #2196F3;
   color: white;
 }
-

@@ -1,8 +1,21 @@
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
 
 class MessageList extends Component {
+  componentWillUpdate() {
+    var node = ReactDOM.findDOMNode(this);
+    this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
+  }
+
+  componentDidUpdate() {
+    if (this.shouldScrollBottom) {
+      var node = ReactDOM.findDOMNode(this);
+      node.scrollTop = node.scrollHeight
+    }
+  }
+
   render () {
     const { messages } = this.props;
 
